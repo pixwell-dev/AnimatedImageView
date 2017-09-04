@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AnimatedImageView</string>
+    <string name="menu_animation">Animation</string>
+</resources>
