@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.widget.ImageView
 import sk.pixwell.android.widget.animatedimageview.animations.BaseAnimation
 
-class AnimatedImageView : ImageView {
+open class AnimatedImageView : ImageView {
     private val animations = mutableListOf<BaseAnimation>()
 
     constructor(context: Context) : super(context) {
