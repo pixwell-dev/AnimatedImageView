@@ -3,9 +3,10 @@ package sk.pixwell.android.widget.animatedimageview.animations
 import android.graphics.Canvas
 
 class ScaleAnimation(
-        private val scaleMin: Float = 0.5f,
-        private val scaleMax: Float = 1f
-) : BaseAnimation() {
+    val scaleMin: Float = 0.5f,
+    val scaleMax: Float = 1f,
+    oneShot: Boolean = false
+) : BaseAnimation(oneShot) {
     private var scale = 1f
     private var direction = 1
 

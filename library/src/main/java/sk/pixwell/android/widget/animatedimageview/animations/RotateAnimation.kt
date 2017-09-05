@@ -2,7 +2,7 @@ package sk.pixwell.android.widget.animatedimageview.animations
 
 import android.graphics.Canvas
 
-class RotateAnimation : BaseAnimation() {
+class RotateAnimation(oneShot: Boolean = false) : BaseAnimation(oneShot) {
     private var degrees = 0
 
     override fun draw(canvas: Canvas) {
