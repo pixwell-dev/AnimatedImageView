@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import kotlinx.android.synthetic.main.activity_main.*
 import sk.pixwell.android.widget.animatedimageview.animations.AlphaAnimation
+import sk.pixwell.android.widget.animatedimageview.animations.JumpAnimation
 import sk.pixwell.android.widget.animatedimageview.animations.RotateAnimation
 import sk.pixwell.android.widget.animatedimageview.animations.ScaleAnimation
 
@@ -17,7 +18,8 @@ class MainActivity : AppCompatActivity() {
     private val animations = listOf(
         Pair("Rotate", RotateAnimation()),
         Pair("Scale", ScaleAnimation()),
-        Pair("Alpha", AlphaAnimation())
+        Pair("Alpha", AlphaAnimation()),
+        Pair("Jump", JumpAnimation())
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

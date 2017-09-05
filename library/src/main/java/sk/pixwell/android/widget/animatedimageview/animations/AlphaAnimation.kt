@@ -14,11 +14,14 @@ class AlphaAnimation(
 
     override fun draw(canvas: Canvas) {
         val rect = RectF(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat())
+        val alpha = alpha(5)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            canvas.saveLayerAlpha(rect, alpha(5))
-        } else {
-            canvas.saveLayerAlpha(rect, alpha(5), Canvas.ALL_SAVE_FLAG)
+        canvas.apply {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                saveLayerAlpha(rect, alpha)
+            } else {
+                saveLayerAlpha(rect, alpha, Canvas.ALL_SAVE_FLAG)
+            }
         }
     }
 
