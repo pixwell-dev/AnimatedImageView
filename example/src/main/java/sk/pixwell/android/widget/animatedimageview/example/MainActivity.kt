@@ -9,10 +9,10 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import kotlinx.android.synthetic.main.activity_main.*
-import sk.pixwell.android.widget.animatedimageview.animations.AlphaAnimation
-import sk.pixwell.android.widget.animatedimageview.animations.JumpAnimation
-import sk.pixwell.android.widget.animatedimageview.animations.RotateAnimation
-import sk.pixwell.android.widget.animatedimageview.animations.ScaleAnimation
+import sk.pixwell.android.widget.animatedimageview.animation.AlphaAnimation
+import sk.pixwell.android.widget.animatedimageview.animation.JumpAnimation
+import sk.pixwell.android.widget.animatedimageview.animation.RotateAnimation
+import sk.pixwell.android.widget.animatedimageview.animation.ScaleAnimation
 
 class MainActivity : AppCompatActivity() {
     private val animations = listOf(

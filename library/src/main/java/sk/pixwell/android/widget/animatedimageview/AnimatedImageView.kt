@@ -5,27 +5,14 @@ import android.graphics.Canvas
 import android.os.Build
 import android.util.AttributeSet
 import android.widget.ImageView
-import sk.pixwell.android.widget.animatedimageview.animations.BaseAnimation
+import sk.pixwell.android.widget.animatedimageview.animation.BaseAnimation
 
 open class AnimatedImageView : ImageView {
     private val animations = mutableListOf<BaseAnimation>()
 
-    constructor(context: Context) : super(context) {
-        init(context)
-    }
-
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        init(context, attrs)
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init(context, attrs, defStyleAttr)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    private fun init(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int? = null) {
-
-    }
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     override fun onDraw(canvas: Canvas?) {
         if (canvas != null) {
