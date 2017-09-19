@@ -9,6 +9,8 @@ class RotateAnimation(
     oneShot: Boolean = false,
     interpolator: BaseInterpolator = LinearInterpolator()
 ) : BaseAnimation(duration, oneShot, interpolator) {
+    override val order = 1
+
     override fun draw(canvas: Canvas, progress: Float, interpolation: Float) {
         val dx = canvas.width / 2f
         val dy = canvas.height / 2f

@@ -12,6 +12,7 @@ abstract class BaseAnimation(
     private var startFrameTime: Long = -1
     private var endFrameTime: Long = -1
     private var isCompleted = false
+    open val order = 0
 
     override fun equals(other: Any?): Boolean
         = other != null && this::class == other::class

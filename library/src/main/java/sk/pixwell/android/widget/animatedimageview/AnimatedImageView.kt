@@ -29,6 +29,7 @@ open class AnimatedImageView : ImageView {
     fun addAnimation(animation: BaseAnimation) {
         if (!hasAnimation(animation)) {
             animations.add(animation)
+            animations.sortBy { it.order }
             resetAnimations()
         }
     }
