@@ -2,7 +2,6 @@ package sk.pixwell.android.widget.animatedimageview
 
 import android.content.Context
 import android.graphics.Canvas
-import android.os.Build
 import android.util.AttributeSet
 import android.widget.ImageView
 import sk.pixwell.android.widget.animatedimageview.animation.BaseAnimation
@@ -17,10 +16,7 @@ open class AnimatedImageView : ImageView {
     override fun onDraw(canvas: Canvas?) {
         if (canvas != null) {
             animations.forEach { it.draw(canvas) }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                postInvalidateOnAnimation()
-            }
+            postInvalidateOnAnimation()
         }
 
         super.onDraw(canvas)
