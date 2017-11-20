@@ -8,6 +8,8 @@ import sk.pixwell.android.widget.animatedimageview.animation.BaseAnimation
 
 open class AnimatedImageView : ImageView {
     private val animations = mutableListOf<BaseAnimation>()
+    var onAnimationCompleteListener: ((AnimatedImageView, BaseAnimation) -> Unit)? = null
+    var onAllAnimationsCompleteListener: ((AnimatedImageView) -> Unit)? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
@@ -24,12 +26,21 @@ open class AnimatedImageView : ImageView {
 
     fun addAnimation(animation: BaseAnimation) {
         if (!hasAnimation(animation)) {
-            animations.add(animation)
-            animations.sortBy { it.order }
+            animation.onCompleteListener = fun(a) {
+                onAnimationCompleteListener?.invoke(this, a)
+                if (animations.all { it.isCompleted }) {
+                    onAllAnimationsCompleteListener?.invoke(this)
+                }
+            }
+            animations.apply {
+                add(animation)
+                sortBy { it.order }
+            }
             resetAnimations()
         }
     }
 
+    @Suppress("unused")
     fun removeAnimation(animation: BaseAnimation) {
         animations.removeAll { it == animation }
     }
@@ -39,7 +50,7 @@ open class AnimatedImageView : ImageView {
     }
 
     fun hasAnimation(animation: BaseAnimation): Boolean {
-        return animations.filter { it == animation }.isNotEmpty()
+        return animations.any { it == animation }
     }
 
     fun resetAnimations() {

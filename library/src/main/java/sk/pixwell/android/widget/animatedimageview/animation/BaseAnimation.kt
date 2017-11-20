@@ -11,7 +11,8 @@ abstract class BaseAnimation(
 ) {
     private var startFrameTime: Long = -1
     private var endFrameTime: Long = -1
-    private var isCompleted = false
+    var isCompleted = false
+    var onCompleteListener: ((BaseAnimation) -> Unit)? = null
     open val order = 0
 
     override fun equals(other: Any?): Boolean
@@ -20,11 +21,12 @@ abstract class BaseAnimation(
     fun reset() {
         startFrameTime = -1
         endFrameTime = -1
-        isCompleted = true
+        isCompleted = false
     }
 
     fun draw(canvas: Canvas) {
         if (oneShot && isCompleted) {
+            onCompleteListener?.invoke(this)
             return
         }
 
@@ -32,6 +34,7 @@ abstract class BaseAnimation(
 
         if (endFrameTime != -1L && currentFrameTime >= endFrameTime) {
             reset()
+            isCompleted = true
         }
 
         if (startFrameTime == -1L) {
