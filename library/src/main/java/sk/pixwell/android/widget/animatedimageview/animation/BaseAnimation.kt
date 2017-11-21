@@ -26,23 +26,29 @@ abstract class BaseAnimation(
 
     fun draw(canvas: Canvas) {
         if (oneShot && isCompleted) {
-            onCompleteListener?.invoke(this)
+            draw(canvas, 1f, 1f)
             return
         }
 
         val currentFrameTime = System.currentTimeMillis()
-
-        if (endFrameTime != -1L && currentFrameTime >= endFrameTime) {
-            reset()
-            isCompleted = true
-        }
 
         if (startFrameTime == -1L) {
             startFrameTime = currentFrameTime
             endFrameTime = startFrameTime + duration
         }
 
-        val progress = (currentFrameTime - startFrameTime) / duration.toFloat()
+        if (endFrameTime != -1L && currentFrameTime >= endFrameTime) {
+            reset()
+            if (oneShot) {
+                isCompleted = true
+                onCompleteListener?.invoke(this)
+            }
+        }
+
+        var progress = (currentFrameTime - startFrameTime) / duration.toFloat()
+        if (progress > 1) {
+            progress = 1f
+        }
 
         draw(canvas, progress, interpolator.getInterpolation(progress))
     }
