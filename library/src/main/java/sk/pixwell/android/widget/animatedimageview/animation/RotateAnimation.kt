@@ -1,13 +1,13 @@
 package sk.pixwell.android.widget.animatedimageview.animation
 
 import android.graphics.Canvas
-import android.view.animation.BaseInterpolator
+import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
 
 class RotateAnimation(
-    duration: Int = 2000,
-    oneShot: Boolean = false,
-    interpolator: BaseInterpolator = LinearInterpolator()
+        duration: Int = 2000,
+        oneShot: Boolean = false,
+        interpolator: Interpolator = LinearInterpolator()
 ) : BaseAnimation(duration, oneShot, interpolator) {
     override val order = 1
 

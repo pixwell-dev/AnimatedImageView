@@ -3,16 +3,16 @@ package sk.pixwell.android.widget.animatedimageview.animation
 import android.graphics.Canvas
 import android.graphics.RectF
 import android.os.Build
-import android.view.animation.BaseInterpolator
+import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
 
 class AlphaAnimation(
-    duration: Int = 2000,
-    oneShot: Boolean = false,
-    interpolator: BaseInterpolator = LinearInterpolator(),
-    var fromAlpha: Int = 0,
-    var toAlpha: Int = 255,
-    var reverseRepeat: Boolean = true
+        duration: Int = 2000,
+        oneShot: Boolean = false,
+        interpolator: Interpolator = LinearInterpolator(),
+        var fromAlpha: Int = 0,
+        var toAlpha: Int = 255,
+        var reverseRepeat: Boolean = true
 ) : BaseAnimation(duration, oneShot, interpolator) {
     override fun draw(canvas: Canvas, progress: Float, interpolation: Float) {
         val rect = RectF(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat())

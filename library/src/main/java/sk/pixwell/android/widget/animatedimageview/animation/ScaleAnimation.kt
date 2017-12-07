@@ -1,15 +1,15 @@
 package sk.pixwell.android.widget.animatedimageview.animation
 
 import android.graphics.Canvas
-import android.view.animation.BaseInterpolator
+import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
 
 class ScaleAnimation(
-    duration: Int = 2000,
-    oneShot: Boolean = false,
-    interpolator: BaseInterpolator = LinearInterpolator(),
-    var minScale: Float = 0.5f,
-    var maxScale: Float = 1f
+        duration: Int = 2000,
+        oneShot: Boolean = false,
+        interpolator: Interpolator = LinearInterpolator(),
+        var minScale: Float = 0.5f,
+        var maxScale: Float = 1f
 ) : BaseAnimation(duration, oneShot, interpolator) {
     override fun draw(canvas: Canvas, progress: Float, interpolation: Float) {
         val dx = canvas.width / 2f

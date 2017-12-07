@@ -1,13 +1,13 @@
 package sk.pixwell.android.widget.animatedimageview.animation
 
 import android.graphics.Canvas
-import android.view.animation.BaseInterpolator
+import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
 
 abstract class BaseAnimation(
-    var duration: Int = 2000,
-    var oneShot: Boolean = false,
-    var interpolator: BaseInterpolator = LinearInterpolator()
+        var duration: Int = 2000,
+        var oneShot: Boolean = false,
+        var interpolator: Interpolator = LinearInterpolator()
 ) {
     private var startFrameTime: Long = -1
     private var endFrameTime: Long = -1
@@ -16,7 +16,7 @@ abstract class BaseAnimation(
     open val order = 0
 
     override fun equals(other: Any?): Boolean
-        = other != null && this::class == other::class
+            = other != null && this::class == other::class
 
     fun reset() {
         startFrameTime = -1
